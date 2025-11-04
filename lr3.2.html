@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №3.2 — Об’єкти, Callback, Стрілочні функції</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content {
+      padding: 30px;
+      background: #11131b;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #00fff5;
+      border-bottom: 1px solid #00fff5;
+      padding-bottom: 5px;
+    }
+    code {
+      display: block;
+      background: #1a1c24;
+      border: 1px solid #00fff5;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    .example {
+      background: #1c1e25;
+      border: 1px solid #00fff5;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Лабораторна робота №3.2</h1>
+  <h2>Тема: Об’єкт. Методи об’єкта. Масив об’єктів. Callback. Стрілочні функції</h2>
+
+  <p><b>Мета роботи:</b> придбати практичні навички роботи з об’єктами, методами, callback-функціями та стрілочними функціями у JavaScript. Навчитися використовувати об’єкти та масиви об’єктів у прикладних задачах.</p>
+
+  <h2 id="task1">Завдання №1 — Callback і створення об’єкта</h2>
+  <p>Функції <b>createProduct()</b>, <b>logProduct()</b> та <b>logTotalPrice()</b> демонструють роботу з колбеками при створенні об’єкта товару.</p>
+
+  <code>
+function createProduct(obj, callback) {
+  const product = { id: Date.now(), ...obj };
+  callback(product);
+}
+
+function logProduct(product) {
+  console.log("Продукт:", product);
+}
+
+function logTotalPrice(product) {
+  console.log("Загальна вартість:", product.price * product.quantity);
+}
+
+createProduct({ name: "Ноутбук", price: 25000, quantity: 2 }, logProduct);
+createProduct({ name: "Монітор", price: 10000, quantity: 1 }, logTotalPrice);
+  </code>
+
+  <div class="example">
+    <p><b>Результат:</b></p>
+    <p>Продукт: { name: "Ноутбук", price: 25000, quantity: 2, id: 12345678 }<br>
+    Загальна вартість: 10000</p>
+  </div>
+
+  <h2 id="task2">Завдання №3 — Масив об’єктів (стрілочні функції)</h2>
+  <p>З об’єкта <b>medicines</b> отримуємо масив назв препаратів, видаляємо ті, строк придатності яких минув, і сортуємо за датою зберігання.</p>
+
+  <code>
+const medicines = {
+  Агалгін: new Date("2022-05-01"),
+  Ношпа: new Date("2025-07-02"),
+  Альфахолін: new Date("2024-12-21"),
+  Аспірин: new Date("2022-08-15"),
+  Аспаркам: new Date("2024-04-18"),
+};
+
+const currentDate = new Date();
+const validMedicines = Object.entries(medicines)
+  .filter(([_, date]) => date > currentDate)
+  .sort((a, b) => a[1] - b[1])
+  .map(([name]) => name);
+
+console.log(validMedicines);
+  </code>
+
+  <div class="example">
+    <p><b>Результат у консолі:</b></p>
+    <p>["Аспаркам", "Альфахолін", "Ношпа"]</p>
+  </div>
+
+  <h2 id="task3">Завдання №5 — Масив фруктів, знижка та ID</h2>
+  <p>Функція для створення нового масиву об’єктів із додаванням ID та знижкою 20% на ціну:</p>
+
+  <code>
+const fruits = [
+  { name: "apple", price: 200 },
+  { name: "orange", price: 300 },
+  { name: "grapes", price: 750 },
+];
+
+const updatedFruits = fruits.map((fruit, index) => ({
+  id: index + 1,
+  name: fruit.name,
+  price: fruit.price * 0.8
+}));
+
+console.table(updatedFruits);
+  </code>
+
+  <div class="example">
+    <p><b>Результат:</b></p>
+    <pre>
+┌─────────┬────┬─────────┬────────┐
+│ (index) │ id │  name   │ price  │
+├─────────┼────┼─────────┼────────┤
+│    0    │ 1  │ 'apple' │ 160    │
+│    1    │ 2  │ 'orange'│ 240    │
+│    2    │ 3  │ 'grapes'│ 600    │
+└─────────┴────┴─────────┴────────┘
+    </pre>
+  </div>
+
+  <h2 id="task4">Завдання №7 — Клас Client із приватними властивостями</h2>
+  <p>Приклад реалізації класу із геттерами та сеттерами:</p>
+
+  <code>
+class Client {
+  #login;
+  #email;
+  constructor(login, email) {
+    this.#login = login;
+    this.#email = email;
+  }
+
+  get login() { return this.#login; }
+  set login(newLogin) { this.#login = newLogin; }
+
+  get email() { return this.#email; }
+  set email(newEmail) { this.#email = newEmail; }
+}
+
+const client1 = new Client("Flomix", "flomix@gmail.com");
+console.log(client1.login);
+client1.login = "NewFlomix";
+console.log(client1.login);
+  </code>
+
+  <div class="example">
+    <p><b>Результат:</b></p>
+    <p>Flomix → NewFlomix</p>
+  </div>
+
+  <h2 id="conclusion">Висновки</h2>
+  <p>Під час виконання лабораторної роботи я закріпив знання про об’єкти, методи, масиви об’єктів, стрілочні функції та callback. Навчився створювати класи, працювати з приватними властивостями та застосовувати функціональний підхід у JavaScript.</p>
+</div>
+
+</body>
+</html>

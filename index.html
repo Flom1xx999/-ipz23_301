@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Звіти з лабораторних робіт — ІПЗ23-301</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
+  <h2>Дисципліна: Програмування Інтернет-застосувань</h2>
+  <p>Студент групи ІПЗ23-301 — <b>Рибальченко Олександр</b></p>
+</header>
+
+<nav class="top-tabs">
+  <button onclick="openLab('lr1.1.html')" class="active">ЛР №1.1</button>
+  <button onclick="openLab('lr1.html')">ЛР №1.2</button>
+  <button onclick="openLab('lr2.1.html')">ЛР №2.1</button>
+  <button onclick="openLab('lr2.2.html')">ЛР №2.2</button>
+  <button onclick="openLab('lr3.1.html')">ЛР №3.1</button>
+  <button onclick="openLab('lr3.2.html')">ЛР №3.2</button>
+</nav>
+
+<main>
+  <iframe id="labFrame" src="lr1.1.html"></iframe>
+</main>
+
+<footer>
+  <p>&copy; 2025 | Рибальченко Олександр | ІПЗ23-301</p>
+</footer>
+
+<script>
+function openLab(file) {
+  document.getElementById('labFrame').src = file;
+  document.querySelectorAll('.top-tabs button').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>

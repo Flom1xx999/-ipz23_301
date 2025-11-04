@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №2.1 — Верстка HTML-документу. FLEXBOX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content {
+      padding: 30px;
+      background: #11131b;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #00fff5;
+      border-bottom: 1px solid #00fff5;
+      padding-bottom: 5px;
+    }
+    img {
+      max-width: 600px;
+      border: 2px solid #00fff5;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    code {
+      display: block;
+      background: #1a1c24;
+      border: 1px solid #00fff5;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    .example {
+      background: #1c1e25;
+      border: 1px solid #00fff5;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+    .box {
+      display: flex;
+      gap: 10px;
+      justify-content: space-around;
+      background: #161821;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .box div {
+      background: #00fff5;
+      color: #000;
+      padding: 15px;
+      border-radius: 6px;
+      flex: 1;
+      text-align: center;
+    }
+    ul {
+      list-style: square;
+      padding-left: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Лабораторна робота №2.1</h1>
+  <h2>Тема: Верстка HTML-документу. Блокова верстка. Верстка засобами CSS та FLEXBOX</h2>
+
+  <p><b>Мета роботи:</b> придбати практичні навички роботи з версткою сторінок засобами CSS, навчитися створювати макет сторінки за допомогою блоків, таблиць і технології Flexbox. Порівняти типи макетів і визначити їхні переваги та недоліки.</p>
+
+  <h2 id="task1">Завдання №1 — Розробка макету сайту</h2>
+  <p>Було створено макет сайту магазину комп’ютерної техніки. Використано <b>блокову верстку</b> на основі Flexbox. Основна концепція — розподіл елементів у контейнерах для адаптивного відображення.</p>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Flexbox-diagram.png" alt="Flexbox приклад">
+
+  <h3>HTML-код макету:</h3>
+  <code>
+&lt;header&gt;
+  &lt;h1&gt;Магазин комп’ютерної техніки&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+  &lt;a href="#"&gt;Головна&lt;/a&gt;
+  &lt;a href="#"&gt;Каталог&lt;/a&gt;
+  &lt;a href="#"&gt;Контакти&lt;/a&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;Товари&lt;/section&gt;
+  &lt;aside&gt;Фільтри&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;© 2025 Комп'ютерний магазин&lt;/footer&gt;
+  </code>
+
+  <h3>CSS-код:</h3>
+  <code>
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex: 1;
+}
+
+section {
+  flex: 3;
+  background: #11131b;
+  padding: 10px;
+}
+
+aside {
+  flex: 1;
+  background: #1a1c24;
+  padding: 10px;
+}
+  </code>
+
+  <div class="example">
+    <div class="box">
+      <div>Header</div>
+      <div>Nav</div>
+      <div>Main</div>
+      <div>Footer</div>
+    </div>
+    <p>Це спрощений приклад макету з використанням Flexbox.</p>
+  </div>
+
+  <h2 id="task2">Завдання №2 — Таблична та блокова верстка</h2>
+  <p>Порівняння типів макетів:</p>
+  <ul>
+    <li><b>Таблична верстка:</b> проста у реалізації, але незручна для адаптивного дизайну.</li>
+    <li><b>Блокова верстка:</b> гнучка, легше адаптується під різні екрани.</li>
+    <li><b>Flexbox:</b> сучасний підхід, зручне вирівнювання елементів у ряд і колонку.</li>
+  </ul>
+
+  <h2 id="task3">Завдання №3 — Верстка за допомогою Flexbox</h2>
+  <p>У цьому завданні створено макет сторінки із секцією товарів, розміщених за допомогою Flexbox. Кожен блок автоматично підлаштовується під розмір екрана.</p>
+
+  <code>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  flex: 0 1 30%;
+  background: #161821;
+  border: 1px solid #00fff5;
+  margin: 10px;
+  border-radius: 6px;
+  padding: 10px;
+  color: #fff;
+}
+  </code>
+
+  <div class="example">
+    <div class="container">
+      <div class="product">Товар 1</div>
+      <div class="product">Товар 2</div>
+      <div class="product">Товар 3</div>
+    </div>
+  </div>
+
+  <h2 id="conclusion">Висновки</h2>
+  <p>У результаті виконання роботи я навчився створювати макети веб-сторінок різних типів: табличні, блокові та на основі Flexbox. Flexbox забезпечує просту адаптивність і контроль над вирівнюванням елементів, що робить його ефективним інструментом сучасної верстки.</p>
+
+  <h2>Контрольні питання</h2>
+  <ol>
+    <li>На яких трьох базових концепціях заснована верстка сторінок?</li>
+    <li>Що таке фіксований, гумовий, адаптивний тип макету?</li>
+    <li>У чому переваги Flexbox порівняно з таблицями?</li>
+    <li>Як можна комбінувати різні типи макетів?</li>
+  </ol>
+</div>
+
+</body>
+</html>

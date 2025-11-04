@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №1.2 — Каскадні таблиці стилів</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content {
+      padding: 30px;
+      background: #11131b;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #00fff5;
+      border-bottom: 1px solid #00fff5;
+      padding-bottom: 5px;
+    }
+    p, li {
+      color: #e0e0e0;
+    }
+    code {
+      display: block;
+      background: #1a1c24;
+      border: 1px solid #00fff5;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    .example {
+      background: #1c1e25;
+      border: 1px solid #00fff5;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+    .highlight {
+      color: #00fff5;
+      font-weight: bold;
+    }
+    .box {
+      border: 2px solid #00fff5;
+      padding: 15px;
+      margin: 10px 0;
+      background: #161821;
+    }
+    .text-sample {
+      font-family: 'Poppins', sans-serif;
+      color: #00fff5;
+      text-shadow: 0 0 5px #00fff5;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #1a1c24;
+    }
+    th, td {
+      border: 1px solid #00fff5;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #00fff5;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Лабораторна робота №1.2</h1>
+  <h2>Тема: Каскадні таблиці стилів. Селектори. Ідентифікатори. Стильове оформлення текстових елементів</h2>
+
+  <p><b>Мета роботи:</b> придбати практичні навички роботи з селекторами тегів, класів, ідентифікаторів, списками, властивостями кольору, фону, оформленням текстових елементів у HTML-документах.</p>
+
+  <h2 id="selectors-tag">1. Селектори тегу</h2>
+  <p>Селектори тегів застосовуються безпосередньо до всіх елементів одного типу.</p>
+  <code>
+p {<br>
+  color: #00fff5;<br>
+  font-size: 18px;<br>
+}
+  </code>
+  <div class="example">
+    <p>Це приклад тексту, оформленого через селектор тегу &lt;p&gt;.</p>
+  </div>
+
+  <h2 id="selectors-class">2. Селектори класу</h2>
+  <p>Клас дозволяє задавати унікальне оформлення для групи елементів.</p>
+  <code>
+.highlight {<br>
+  color: #ffeb3b;<br>
+  background-color: #333;<br>
+  padding: 5px;<br>
+  border-radius: 5px;<br>
+}
+  </code>
+  <div class="example">
+    <p class="highlight">Цей текст оформлено за допомогою класу <b>.highlight</b></p>
+  </div>
+
+  <h2 id="selectors-id">3. Селектори ідентифікатора</h2>
+  <p>Ідентифікатор використовується для одного унікального елемента сторінки. Позначається знаком решітки <b>#</b>.</p>
+  <code>
+#special-text {<br>
+  color: #00ff9d;<br>
+  font-weight: bold;<br>
+  text-decoration: underline;<br>
+}
+  </code>
+  <div class="example">
+    <p id="special-text">Цей абзац має унікальний стиль через ID-селектор.</p>
+  </div>
+
+  <h2 id="selectors-other">4. Інші селектори</h2>
+  <p>Можна використовувати дочірні, сусідні, атрибутні та універсальні селектори.</p>
+  <code>
+div > p { color: #ff9800; }<br>
+input[type="text"] { background: #1e1e1e; color: white; }<br>
+* { font-family: 'Poppins', sans-serif; }
+  </code>
+
+  <h2 id="fonts">5. CSS: Шрифти, Текст, Таблиці, Фон, Контур, Списки</h2>
+  <p>Нижче приклад різних властивостей CSS:</p>
+
+  <div class="example">
+    <p class="text-sample">Текст із шрифтом Poppins, кольором #00fff5 та тінню.</p>
+  </div>
+
+  <p>Приклад таблиці зі стилями:</p>
+  <table>
+    <tr><th>Елемент</th><th>Властивість</th><th>Значення</th></tr>
+    <tr><td>Шрифт</td><td>font-family</td><td>Poppins</td></tr>
+    <tr><td>Колір тексту</td><td>color</td><td>#00fff5</td></tr>
+    <tr><td>Фон</td><td>background-color</td><td>#1a1c24</td></tr>
+  </table>
+
+  <p>Приклад списку зі стилями:</p>
+  <ul>
+    <li>Селектори тегів</li>
+    <li>Селектори класів</li>
+    <li>Селектори ідентифікаторів</li>
+  </ul>
+
+  <h2 id="conclusion">Висновки</h2>
+  <p>У ході виконання лабораторної роботи я закріпив знання про роботу з CSS-селекторами, навчився застосовувати стилі до елементів сторінки, оформлювати текст, таблиці та списки. Також ознайомився з принципами каскадування та спадкування стилів.</p>
+
+  <h2>Контрольні питання</h2>
+  <ol>
+    <li>Для чого використовуються каскадні таблиці стилів?</li>
+    <li>Які методи визначення стилів HTML-документі ви знаєте?</li>
+    <li>У чому різниця між принципами каскадування і спадкування?</li>
+    <li>Як оформлюються селектори тегу і класу?</li>
+    <li>Для чого використовується ідентифікатор?</li>
+    <li>Навести приклади оформлення текстових елементів.</li>
+  </ol>
+
+</div>
+</body>
+</html>

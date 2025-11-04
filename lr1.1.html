@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №1.1 — Структура HTML-документа</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content {
+      padding: 30px;
+      background: #11131b;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #00fff5;
+      border-bottom: 1px solid #00fff5;
+      padding-bottom: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #1a1c24;
+    }
+    th, td {
+      border: 1px solid #00fff5;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #00fff5;
+      color: #000;
+    }
+    form {
+      background: #1a1c24;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      border: 1px solid #00fff5;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #00fff5;
+      border-radius: 4px;
+      background: #0d0f14;
+      color: #fff;
+    }
+    img {
+      max-width: 300px;
+      border: 2px solid #00fff5;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Лабораторна робота №1.1</h1>
+  <h2>Тема: Структура HTML-документа</h2>
+  <p><b>Мета роботи:</b> Ознайомитись із базовою структурою HTML-документа, навчитися створювати елементи сторінки, таблиці, форми та вставляти зображення.</p>
+
+  <h2 id="desc">Опис предметного середовища</h2>
+  <p>Для прикладу було розроблено просту веб-сторінку магазину комп’ютерної техніки. Вона складається з заголовка, навігаційного меню, інформаційного блоку, таблиці товарів, контактної форми та зображень продукції.</p>
+
+  <h2 id="structure">Структура документа</h2>
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Магазин комп’ютерної техніки&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Заголовок сайту&lt;/header&gt;
+    &lt;nav&gt;Меню&lt;/nav&gt;
+    &lt;main&gt;Основний контент&lt;/main&gt;
+    &lt;footer&gt;Підвал сторінки&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+  <h2 id="table">HTML-код таблиці</h2>
+  <p>Нижче представлено приклад таблиці товарів:</p>
+  <table>
+    <tr>
+      <th>Назва</th>
+      <th>Категорія</th>
+      <th>Ціна</th>
+      <th>Наявність</th>
+    </tr>
+    <tr>
+      <td>Ноутбук Acer Aspire</td>
+      <td>Ноутбуки</td>
+      <td>25 000 грн</td>
+      <td>Є в наявності</td>
+    </tr>
+    <tr>
+      <td>Відеокарта RTX 4060</td>
+      <td>Комплектуючі</td>
+      <td>18 500 грн</td>
+      <td>Є в наявності</td>
+    </tr>
+    <tr>
+      <td>Монітор LG UltraGear</td>
+      <td>Монітори</td>
+      <td>12 000 грн</td>
+      <td>Немає</td>
+    </tr>
+  </table>
+
+  <h2 id="form">HTML-код форми</h2>
+  <p>Форма для зворотного зв’язку:</p>
+  <form>
+    <label>Ім’я:</label>
+    <input type="text" placeholder="Введіть ваше ім’я">
+
+    <label>Email:</label>
+    <input type="email" placeholder="example@gmail.com">
+
+    <label>Повідомлення:</label>
+    <textarea rows="4" placeholder="Ваш текст..."></textarea>
+
+    <button type="submit">Надіслати</button>
+  </form>
+
+  <h2 id="img">HTML-код зображення</h2>
+  <p>Приклад додавання зображення товару:</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg" alt="Приклад зображення">
+
+  <pre>
+&lt;img src="images/product.jpg" alt="Фото товару"&gt;
+  </pre>
+
+  <h2 id="conclusion">Висновки</h2>
+  <p>У ході виконання лабораторної роботи я ознайомився зі структурою HTML-документа, розглянув основні теги, створив таблицю, форму зворотного зв’язку та вставив зображення. Отримані знання є базовими для подальшого вивчення CSS і JavaScript.</p>
+</div>
+
+</body>
+</html>

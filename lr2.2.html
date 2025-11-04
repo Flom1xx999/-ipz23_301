@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №2.2 — Адаптивна верстка. Медіа-запити</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .content {
+      padding: 30px;
+      background: #11131b;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #00fff5;
+      border-bottom: 1px solid #00fff5;
+      padding-bottom: 5px;
+    }
+    p, li {
+      color: #e0e0e0;
+    }
+    code {
+      display: block;
+      background: #1a1c24;
+      border: 1px solid #00fff5;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    img {
+      max-width: 600px;
+      border: 2px solid #00fff5;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .example {
+      background: #1c1e25;
+      border: 1px solid #00fff5;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+    .demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .demo-box {
+      background: #00fff5;
+      color: #000;
+      padding: 20px;
+      border-radius: 6px;
+      flex: 1 1 250px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* === Медіа-запити === */
+    @media (max-width: 1024px) {
+      .demo-box { background: #00bfff; }
+    }
+
+    @media (max-width: 768px) {
+      .demo-box { background: #0088cc; flex: 1 1 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .demo-box { background: #005577; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <h1>Лабораторна робота №2.2</h1>
+  <h2>Тема: Адаптивна верстка. Медіа-запити. Метатег viewport</h2>
+
+  <p><b>Мета роботи:</b> навчитися створювати адаптивну верстку за допомогою CSS медіа-запитів, зрозуміти принципи використання метатегу viewport, медіа-типів і функцій, а також застосувати стратегію <b>Mobile First</b>.</p>
+
+  <h2 id="desktop">1. Десктопна версія</h2>
+  <p>Десктопна версія відображає повний контент сторінки з горизонтальним меню, блоками у ряд та великими зображеннями. Для неї використовується стандартний стиль без медіа-запитів.</p>
+
+  <div class="demo-container">
+    <div class="demo-box">Header</div>
+    <div class="demo-box">Main Content</div>
+    <div class="demo-box">Sidebar</div>
+    <div class="demo-box">Footer</div>
+  </div>
+
+  <h2 id="tablet">2. Планшетна версія</h2>
+  <p>При ширині до <b>768–1024px</b> елементи перебудовуються у два рядки. Меню стає вертикальним, а зображення змінюють масштаб для кращого відображення.</p>
+
+  <code>
+@media (max-width: 1024px) {
+  .container { flex-direction: column; }
+  .sidebar { display: none; }
+}
+  </code>
+
+  <h2 id="mobile">3. Мобільна версія</h2>
+  <p>Для пристроїв із шириною до <b>480px</b> використовується повністю вертикальна структура. Блоки займають 100% ширини екрана, збільшується розмір шрифту для зручності користування.</p>
+
+  <code>
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  nav a { display: block; padding: 10px; }
+}
+  </code>
+
+  <h2 id="viewport">4. Метатег viewport</h2>
+  <p>Метатег <b>viewport</b> використовується для налаштування масштабу сторінки на мобільних пристроях:</p>
+  <code>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  </code>
+
+  <p>Цей тег гарантує, що сторінка відображатиметься коректно на всіх екранах без горизонтальної прокрутки.</p>
+
+  <h2 id="operators">5. Логічні оператори в медіа-запитах</h2>
+  <p>Медіа-запити підтримують логічні оператори <b>and</b>, <b>or</b>, <b>not</b> для комбінування умов. Наприклад:</p>
+  <code>
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .container { background: #222; }
+}
+  </code>
+
+  <h2 id="conclusion">Висновки</h2>
+  <p>У ході виконання лабораторної роботи створено три версії веб-сторінки: десктопну, планшетну та мобільну. Застосовано медіа-запити, логічні оператори, а також метатег viewport. Це дозволило забезпечити коректне відображення сторінки на різних пристроях та екранах.</p>
+
+  <h2>Контрольні питання</h2>
+  <ol>
+    <li>Що таке адаптивна верстка?</li>
+    <li>Для чого використовуються медіа-запити?</li>
+    <li>Що робить метатег viewport?</li>
+    <li>Які типи пристроїв враховують при створенні адаптивної сторінки?</li>
+    <li>У чому полягає стратегія Mobile First?</li>
+  </ol>
+</div>
+
+</body>
+</html>
